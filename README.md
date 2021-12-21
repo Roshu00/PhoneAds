@@ -1,11 +1,14 @@
-###back-end
-#npm install
-#npm run migrate
-#npm run makeseed
-#npm run seed
-#npm start dev
+### back-end
+```sh
+$npm install
+$npm run migrate
+$npm run makeseed
+$npm run seed
+$npm start dev
+```
 
-
-###front-end
-#npm install
-#npm start
+### front-end
+```sh
+$npm install
+$npm start
+```
