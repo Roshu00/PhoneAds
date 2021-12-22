@@ -1,0 +1,43 @@
+version: "3.6"
+services:
+  #  react:
+  #    image: phone/frontend
+  #    container_name: react
+  #    restart: always
+  #    environment:
+  #      TOKEN_SECRET: sfiancoasm
+  #      REFRESH_TOKEN: sdsninapvndiiis
+  #      CLOUDINARY_URL: cloudinary://833611653483269:pNAmIaiGkx8ep_yGph51mMfwSU8@oglasi
+  #      CLOUDINARY_SECRET: pNAmIaiGkx8ep_yGph51mMfwSU8
+  #      CLOUDINARY_API: 833611653483269
+  #    ports:
+  #      - 3000:3000
+  #  server:
+  #    image: phone/backend
+  #    container_name: server_react
+  #    restart: always
+  #    ports:
+  #      - 3001:3001
+  #    environment:
+  #      - POSTGRES_USER=postgres
+  #      - POSTGRES_PASSWORD=loncanik123
+  #      - POSTGRES_DATABASE=tehnopsesia
+  #    depends_on:
+  #      db:
+  #        condition: service_healthy
+  db:
+    build:
+      context: ./back-end/db
+      dockerfile: Dockerfile
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=roshu
+      - POSTGRES_PASSWORD=loncanik123
+      - POSTGRES_DATABASE=tehnopsesia
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      start_period: 10s
+      timeout: 4s
+      retries: 3
